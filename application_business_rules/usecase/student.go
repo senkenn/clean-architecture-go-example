@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"clean-architecture-go-example/enterprise_business_rules/domain"
+	"clean-architecture-go-example/enterprise_business_rules/domain/entity"
 	"clean-architecture-go-example/enterprise_business_rules/domain/repository_interface"
 )
 
@@ -15,7 +15,7 @@ type Student struct {
 }
 
 // Get student by ID
-func (uc *StudentUseCase) GetStudentByID(id int) (*domain.Student, error) {
+func (uc *StudentUseCase) GetStudentByID(id int) (*entity.Student, error) {
 	student, err := uc.StudentRepo.GetByID(id)
 	if err != nil {
 		return nil, err
@@ -25,7 +25,7 @@ func (uc *StudentUseCase) GetStudentByID(id int) (*domain.Student, error) {
 
 // Create a new student
 func (uc *StudentUseCase) CreateStudent(id int, name string) error {
-	student := &domain.Student{
+	student := &entity.Student{
 		ID:   id,
 		Name: name,
 	}
