@@ -3,7 +3,6 @@ package repository
 import (
 	"clean-architecture-go-example/enterprise_business_rules/domain"
 	"errors"
-	"fmt"
 )
 
 // This is just an in-memory mock, you can replace it with real DB implementation
@@ -26,6 +25,5 @@ func (repo *InMemoryStudentRepository) GetByID(id int) (*domain.Student, error) 
 
 func (repo *InMemoryStudentRepository) Save(student *domain.Student) error {
 	repo.students[student.ID] = student
-	fmt.Println("Student saved:", student)
 	return nil
 }

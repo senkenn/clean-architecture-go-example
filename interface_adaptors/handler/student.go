@@ -2,7 +2,6 @@ package handler
 
 import (
 	"clean-architecture-go-example/application_business_rules/usecase"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -14,8 +13,6 @@ type StudentHandler struct {
 }
 
 func (h *StudentHandler) GetStudent(c *gin.Context) {
-	fmt.Println(c.Request)
-	fmt.Println(c.Params)
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID"})

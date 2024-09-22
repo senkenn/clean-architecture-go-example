@@ -1,9 +1,12 @@
 package usecase
 
-import "clean-architecture-go-example/enterprise_business_rules/domain"
+import (
+	"clean-architecture-go-example/enterprise_business_rules/domain"
+	"clean-architecture-go-example/enterprise_business_rules/domain/repository_interface"
+)
 
 type StudentUseCase struct {
-	StudentRepo domain.StudentRepository
+	StudentRepo repository_interface.IStudentRepository
 }
 
 type Student struct {
