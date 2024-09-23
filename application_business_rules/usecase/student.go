@@ -9,11 +9,6 @@ type StudentUseCase struct {
 	StudentRepo repository_interface.IStudentRepository
 }
 
-type Student struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-}
-
 // Get student by ID
 func (uc *StudentUseCase) GetStudentByID(id int) (*entity.Student, error) {
 	student, err := uc.StudentRepo.GetByID(id)

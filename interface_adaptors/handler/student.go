@@ -29,7 +29,11 @@ func (h *StudentHandler) GetStudent(c *gin.Context) {
 }
 
 func (h *StudentHandler) CreateStudent(c *gin.Context) {
-	var student usecase.Student
+	type Student struct {
+		ID   int    `json:"id"`
+		Name string `json:"name"`
+	}
+	var student Student
 	if err := c.ShouldBindJSON(&student); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
 		return
